@@ -1,18 +1,25 @@
 // class
 class Person {
-  public name: string;
-  private userName: string;
-
   constructor(
-    name: string,
-    public age: number,
-    userName: string,
+    public name: string,
+    private age: number,
     protected family: string
-  ) {
-    this.name = name;
-    this.userName = userName;
+  ) {}
+
+  printAge() {
+    console.log(this.age);
+    this.setFamilyName("Olayii");
+    console.log(this.family);
+  }
+
+  private setFamilyName(family: string) {
+    this.family = family;
   }
 }
-const person = new Person("Hossein", 26, "hofa", "fatemi");
+const person = new Person("Hossein", 26, "Fatemi");
+
+// person.setFamilyName("Vosoghi");
+
+person.printAge();
 
 console.log(person);
