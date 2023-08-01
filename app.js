@@ -1,12 +1,17 @@
 "use strict";
 // Class
 class Department {
-    constructor(n) {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+        // private id: string;
+        // private name: string;
         this.employees = [];
-        this.name = n;
+        // this.name = n;
+        // this.id = id;
     }
     describe() {
-        console.log("Department : " + this.name);
+        console.log(`Department (${this.id}): ${this.name}`);
     }
     addEmployee(employee) {
         // Validation
@@ -17,9 +22,11 @@ class Department {
         console.log(this.employees);
     }
 }
-const accounting = new Department("Accounting");
+const accounting = new Department("A1", "Accounting");
 accounting.addEmployee("Jhon");
 accounting.addEmployee("Anna");
+accounting.describe();
+console.log(accounting);
 // accounting.employees[2] = "ASD";
 // accounting.name = "IT";
 accounting.printEmployee();
