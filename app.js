@@ -4,7 +4,7 @@ class Department {
     constructor(id, name) {
         this.id = id;
         this.name = name;
-        // private id: string;
+        // private readonly id: string;
         // private name: string;
         this.employees = [];
         // this.name = n;
