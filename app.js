@@ -1,21 +1,28 @@
 "use strict";
-// class
-class Person {
-    constructor(name, age, family) {
-        this.name = name;
-        this.age = age;
-        this.family = family;
+// Class
+class Department {
+    constructor(n) {
+        this.employees = [];
+        this.name = n;
     }
-    printAge() {
-        console.log(this.age);
-        this.setFamilyName("Olayii");
-        console.log(this.family);
+    describe() {
+        console.log("Department : " + this.name);
     }
-    setFamilyName(family) {
-        this.family = family;
+    addEmployee(employee) {
+        // Validation
+        this.employees.push(employee);
+    }
+    printEmployee() {
+        console.log(this.employees.length);
+        console.log(this.employees);
     }
 }
-const person = new Person("Hossein", 26, "Fatemi");
-// person.setFamilyName("Vosoghi");
-person.printAge();
-console.log(person);
+const accounting = new Department("Accounting");
+accounting.addEmployee("Jhon");
+accounting.addEmployee("Anna");
+// accounting.employees[2] = "ASD";
+// accounting.name = "IT";
+accounting.printEmployee();
+// accounting.describe();
+// const accountingCopy = { name: "S", describe: accounting.describe };
+// accountingCopy.describe();
