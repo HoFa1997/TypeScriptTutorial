@@ -30,6 +30,7 @@ class ITDepartment extends Department {
 
 class AccountingDepartment extends Department {
   private lastReport: string;
+  static myNum = 1;
   constructor(id: string, private reports: string[]) {
     super(id, "IT");
     this.lastReport = reports[0];
@@ -49,6 +50,10 @@ class AccountingDepartment extends Department {
     this.addReport(value);
   }
 
+  static printAEmployee(name: string) {
+    console.log(name);
+  }
+
   addEmployee(employee: string): void {
     if (employee === "Ali") {
       return;
@@ -65,4 +70,6 @@ class AccountingDepartment extends Department {
   }
 }
 const it = new ITDepartment("I1", ["A", "B"]);
-const accounting = new AccountingDepartment("D2", []);
+// const accounting = new AccountingDepartment("D2", []);
+AccountingDepartment.printAEmployee("Ali");
+console.log(AccountingDepartment.myNum);

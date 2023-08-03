@@ -45,6 +45,9 @@ class AccountingDepartment extends Department {
         }
         this.addReport(value);
     }
+    static printAEmployee(name) {
+        console.log(name);
+    }
     addEmployee(employee) {
         if (employee === "Ali") {
             return;
@@ -59,5 +62,8 @@ class AccountingDepartment extends Department {
         console.log(this.reports);
     }
 }
+AccountingDepartment.myNum = 1;
 const it = new ITDepartment("I1", ["A", "B"]);
-const accounting = new AccountingDepartment("D2", []);
+// const accounting = new AccountingDepartment("D2", []);
+AccountingDepartment.printAEmployee("Ali");
+console.log(AccountingDepartment.myNum);
