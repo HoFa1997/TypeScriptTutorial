@@ -6,9 +6,6 @@ class Department {
         this.name = name;
         this.employees = [];
     }
-    describe() {
-        console.log(`Department (${this.id}): ${this.name}`);
-    }
     addEmployee(employee) {
         // Validation
         this.employees.push(employee);
@@ -23,6 +20,9 @@ class ITDepartment extends Department {
         super(id, "IT");
         this.admins = admins;
     }
+    describe() {
+        console.log("This is IT Dp");
+    }
     reportAdmins() {
         console.log(this.admins);
     }
@@ -32,6 +32,9 @@ class AccountingDepartment extends Department {
         super(id, "IT");
         this.reports = reports;
         this.lastReport = reports[0];
+    }
+    describe() {
+        console.log("this is accounting");
     }
     get mostRecentReport() {
         if (this.lastReport) {
@@ -64,6 +67,6 @@ class AccountingDepartment extends Department {
 }
 AccountingDepartment.myNum = 1;
 const it = new ITDepartment("I1", ["A", "B"]);
-// const accounting = new AccountingDepartment("D2", []);
-AccountingDepartment.printAEmployee("Ali");
-console.log(AccountingDepartment.myNum);
+const accounting = new AccountingDepartment("D2", []);
+it.describe();
+accounting.describe();
