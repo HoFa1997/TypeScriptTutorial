@@ -1,19 +1,11 @@
 interface IPerson {
-  name: string;
+  readonly name: string;
   age: number;
   hello(name: string): void;
 }
 
-interface ICompany {
-  companySize: number;
-}
-
-class Person implements IPerson, ICompany {
-  constructor(
-    public name: string,
-    public age: number,
-    public companySize: number
-  ) {}
+class Person implements IPerson {
+  constructor(public name: string, public age: number) {}
 
   hello(name: string): void {
     console.log(name);
@@ -22,7 +14,7 @@ class Person implements IPerson, ICompany {
 
 let user1: IPerson;
 
-user1 = new Person("Ali", 24, 100);
+user1 = new Person("Ali", 24);
 
 console.log(user1);
 

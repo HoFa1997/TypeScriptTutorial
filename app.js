@@ -1,16 +1,15 @@
 "use strict";
 class Person {
-    constructor(name, age, companySize) {
+    constructor(name, age) {
         this.name = name;
         this.age = age;
-        this.companySize = companySize;
     }
     hello(name) {
         console.log(name);
     }
 }
 let user1;
-user1 = new Person("Ali", 24, 100);
+user1 = new Person("Ali", 24);
 console.log(user1);
 user1.hello("hossein");
 // user1 = {
