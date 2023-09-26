@@ -52,3 +52,11 @@ const userInputElement = document.getElementById("user-input");
 if (userInputElement) {
   (userInputElement as HTMLInputElement).value = "Hi there";
 }
+
+interface ErrorContainer {
+  [key: string]: string;
+}
+
+const error: ErrorContainer = {
+  email: "Not a valid email!",
+};
