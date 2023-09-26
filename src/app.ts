@@ -82,3 +82,9 @@ const fetchUserData = {
 };
 
 console.log(fetchUserData?.job?.title);
+
+const userInput = null;
+
+const storedData = userInput ?? "DEFAULT";
+
+console.log(storedData);
