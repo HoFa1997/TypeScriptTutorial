@@ -17,11 +17,6 @@ const e1: IEmployee = {
   startDate: new Date(),
 };
 
-type Combinable = string | number;
-type Numeric = number | boolean;
-
-type Universal = Combinable & Numeric;
-
 interface Bird {
   type: "bird";
   flyingSpeed: number;
@@ -60,3 +55,22 @@ interface ErrorContainer {
 const error: ErrorContainer = {
   email: "Not a valid email!",
 };
+
+type Combinable = string | number;
+type Numeric = number | boolean;
+
+type Universal = Combinable & Numeric;
+
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: string, b: number): string;
+function add(a: number, b: string): string;
+function add(a: Combinable, b: Combinable) {
+  if (typeof a === "string" || typeof b === "string") {
+    return a.toString() + b.toString();
+  }
+  return a + b;
+}
+
+const result = add("A", " B");
+const result1 = add(1, 2);
