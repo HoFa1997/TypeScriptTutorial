@@ -78,7 +78,7 @@ const result1 = add(1, 2);
 const fetchUserData = {
   id: "u1",
   name: "Hossein",
-  // job: { title: "Front", des: "My own company" },
+  job: { title: "Front", des: "My own company" },
 };
 
 console.log(fetchUserData?.job?.title);
