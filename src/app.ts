@@ -11,3 +11,11 @@
 // promise.then((data) => {
 //   //   data.split(" ");
 // });
+
+function merge<T, U>(objA: T, objB: U) {
+  return { ...objA, ...objB };
+}
+
+const merged = merge({ name: "Hossein", hobbies: ["sport"] }, { age: 26 });
+
+console.log(merged);
