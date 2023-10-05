@@ -41,47 +41,47 @@
 
 // extractAndConvert({ age: 20, name: "Jef" }, "age");
 
-// class DataStorage<T> {
-//   private data: T[] = [];
+class DataStorage<T extends string | number | boolean> {
+  private data: T[] = [];
 
-//   addItem(item: T) {
-//     this.data.push(item);
-//   }
+  addItem(item: T) {
+    this.data.push(item);
+  }
 
-//   removeItem(item: T) {
-//     if (this.data.indexOf(item) === -1) {
-//       return;
-//     }
-//     this.data.splice(this.data.indexOf(item), 1); // -1
-//   }
-//   getItems() {
-//     return [...this.data];
-//   }
+  removeItem(item: T) {
+    if (this.data.indexOf(item) === -1) {
+      return;
+    }
+    this.data.splice(this.data.indexOf(item), 1); // -1
+  }
+  getItems() {
+    return [...this.data];
+  }
+}
+
+const data = new DataStorage<string>();
+
+data.addItem("Hossein");
+data.addItem("Ali");
+data.removeItem("Ali");
+console.log(data.getItems());
+
+// interface CourseGoal {
+//   title: string;
+//   description: string;
+//   completeUntil: Date;
 // }
 
-// const data = new DataStorage<object>();
-// const namee = { name: "Hossein" };
-// data.addItem(namee);
-// data.addItem({ name: "Ali" });
-// data.removeItem(namee);
-// console.log(data.getItems());
+// function createCourseGoal(
+//   title: string,
+//   description: string,
+//   date: Date
+// ): CourseGoal {
+//   let courseGoal: Partial<CourseGoal> = {};
+//   courseGoal.title = title;
+//   courseGoal.description = description;
+//   courseGoal.completeUntil = date;
+//   return courseGoal as CourseGoal;
+// }
 
-interface CourseGoal {
-  title: string;
-  description: string;
-  completeUntil: Date;
-}
-
-function createCourseGoal(
-  title: string,
-  description: string,
-  date: Date
-): CourseGoal {
-  let courseGoal: Partial<CourseGoal> = {};
-  courseGoal.title = title;
-  courseGoal.description = description;
-  courseGoal.completeUntil = date;
-  return courseGoal as CourseGoal;
-}
-
-const names: Readonly<string[]> = ["A", "B"];
+// const names: Readonly<string[]> = ["A", "B"];
