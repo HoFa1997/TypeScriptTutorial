@@ -1,10 +1,12 @@
 // START
 
-function Logger(constructor: Function) {
-  console.log("Logging...");
-  console.log(constructor);
+function Logger(logString: string) {
+  return function (constructor: Function) {
+    console.log(logString);
+    console.log(constructor);
+  };
 }
-@Logger
+@Logger("Logging Person")
 class Person {
   name = "A";
 
@@ -12,7 +14,5 @@ class Person {
     console.log("Creating person Object ...");
   }
 }
-
 const pers = new Person();
-
 console.log(pers);
