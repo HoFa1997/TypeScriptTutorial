@@ -12,31 +12,56 @@
 //   //   data.split(" ");
 // });
 
-function merge<T extends object, U extends object>(objA: T, objB: U) {
-  return { ...objA, ...objB };
-}
+// function merge<T extends object, U extends object>(objA: T, objB: U) {
+//   return { ...objA, ...objB };
+// }
 
-interface Lengthy {
-  length: number;
-}
+// interface Lengthy {
+//   length: number;
+// }
 
-function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
-  let descriptionText = "Got no value.";
-  if (element.length === 1) {
-    descriptionText = "Got 1 element.";
-  } else if (element.length > 1) {
-    descriptionText = "Got " + element.length + " elements.";
+// function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
+//   let descriptionText = "Got no value.";
+//   if (element.length === 1) {
+//     descriptionText = "Got 1 element.";
+//   } else if (element.length > 1) {
+//     descriptionText = "Got " + element.length + " elements.";
+//   }
+//   return [element, descriptionText];
+// }
+
+// console.log(countAndDescribe("Jef"));
+
+// function extractAndConvert<T extends object, U extends keyof T>(
+//   obj: T,
+//   key: U
+// ) {
+//   return `value: ${obj[key]}`;
+// }
+
+// extractAndConvert({ age: 20, name: "Jef" }, "age");
+
+class DataStorage<T> {
+  private data: T[] = [];
+
+  addItem(item: T) {
+    this.data.push(item);
   }
-  return [element, descriptionText];
+
+  removeItem(item: T) {
+    if (this.data.indexOf(item) === -1) {
+      return;
+    }
+    this.data.splice(this.data.indexOf(item), 1); // -1
+  }
+  getItems() {
+    return [...this.data];
+  }
 }
 
-console.log(countAndDescribe("Jef"));
-
-function extractAndConvert<T extends object, U extends keyof T>(
-  obj: T,
-  key: U
-) {
-  return `value: ${obj[key]}`;
-}
-
-extractAndConvert({ age: 20, name: "Jef" }, "age");
+const data = new DataStorage<object>();
+const namee = { name: "Hossein" };
+data.addItem(namee);
+data.addItem({ name: "Ali" });
+data.removeItem(namee);
+console.log(data.getItems());
